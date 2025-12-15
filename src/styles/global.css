@@ -1,0 +1,703 @@
+@import "tailwindcss";
+:root {
+  --accent: 139, 92, 246; /* hero default */
+}
+
+/* Transiciones globales */
+.section[data-theme="hero"] {
+  --accent: 139, 92, 246; /* violeta */
+}
+
+.section[data-theme="stack"] {
+  --accent: 59, 130, 246; /* azul */
+}
+
+.section[data-theme="about"] {
+  --accent: 34, 197, 94; /* verde */
+}
+
+.section[data-theme="diplomas"] {
+  --accent: 234, 179, 8; /* amarillo */
+}
+
+.section[data-theme="contact"] {
+  --accent: 236, 72, 153; /* rosa */
+}
+
+/* Ocultar scrollbar */
+#scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+#scroll-container {
+  scrollbar-width: none;
+}
+/* Fondo tipo grid animado */
+.background-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      rgba(var(--accent), 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(var(--accent), 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 320px 320px;
+  }
+}
+body {
+  background-color: rgb(11, 13, 16);
+  transition: background-color 0.6s ease;
+  font-family: "Pixelify Sans", system-ui, sans-serif;
+}
+/* Glow principal */
+
+.background-grid,
+.glow-left,
+.glow-right {
+  pointer-events: none;
+  z-index: -10;
+}
+
+/* ===== GLOWS ULTRA LIVIANOS ===== */
+
+.glow-left,
+.glow-right {
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.08;
+background: radial-gradient(
+  circle,
+  rgba(var(--accent), 0.9) 0%,
+  rgba(var(--accent), 0.45) 25%,
+  rgba(var(--accent), 0.18) 45%,
+  rgba(var(--accent), 0.08) 60%,
+  transparent 75%
+);
+
+  will-change: transform;
+}
+
+/* Glow izquierda arriba */
+.glow-left {
+  top: -200px;
+  left: -200px;
+  animation:
+    floatLeft 10s ease-in-out infinite,
+    breathe 10s ease-in-out infinite;
+}
+
+
+/* Glow derecha abajo */
+.glow-right {
+  bottom: -200px;
+  right: -200px;
+  animation:
+    floatRight 10s ease-in-out infinite,
+    breathe 10s ease-in-out infinite;
+}
+
+
+/* Animaciones MUY lentas (baratísimas) */
+@keyframes floatLeft {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(40px, 30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes floatRight {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-35px, -25px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes breathe {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Transiciones de color globales */
+* {
+  transition:
+    color 0.6s ease,
+    background-color 0.6s ease,
+    border-color 0.6s ease;
+}
+.glow-left,
+.glow-right {
+  transition: background 0.8s ease;
+}
+/* ===== Animaciones de entrada ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger simple */
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+/* ===== Cards pro ===== */
+
+.card {
+  background: rgba(15, 18, 30, 0.9);
+  border: 2px solid rgb(var(--accent));
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 0 0 2px rgba(var(--accent), 0.4),
+              12px 12px 0 rgba(var(--accent), 1);
+}
+
+.nav-active {
+  color: rgb(var(--accent));
+  position: relative;
+}
+
+.nav-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: rgb(var(--accent));
+}
+/* ===== Header sincronizado ===== */
+
+.header {
+  color: rgb(var(--accent));
+  transition: color 0.6s ease;
+}
+
+.header button {
+  color: inherit;
+}
+/* ===== Botón Play Hero ===== */
+
+.play-button {
+  width: 130px;
+  height: 48px;
+  border: 2px solid rgb(var(--accent));
+  background: rgba(15, 18, 30, 0.9);
+  color: rgb(var(--accent));
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  box-shadow: 8px 8px 0 rgb(var(--accent));
+}
+.card {
+  width: 190px;
+  height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(15, 18, 30, 0.9);
+  border: 2px solid rgb(var(--accent));
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  will-change: transform;
+}
+
+/* ===== Stack icon pixel ===== */
+
+.stack-icon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+}
+
+.square {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: rgb(var(--accent));
+  transition: transform 0.3s ease;
+}
+
+/* Estado A (default) */
+.square.back {
+  top: 8px;
+  left: 8px;
+  opacity: 0.5;
+}
+
+.square.front {
+  top: 0;
+  left: 0;
+}
+
+/* Estado B (hover) */
+.card:hover .square.back {
+  transform: translate(-8px, -8px);
+}
+
+.card:hover .square.front {
+  transform: translate(8px, 8px);
+}
+
+/* Nombre */
+.stack-name {
+  margin-top: 4px;
+  font-size: 20px;
+  letter-spacing: 0.25em;
+}
+/* ===== Typing text ===== */
+
+.typing-text {
+  color: rgb(var(--accent));
+  opacity: 0.85;
+  min-height: 220px;
+
+  white-space: pre-line;
+  word-break: normal;
+  overflow-wrap: break-word;
+
+  transition: color 0.6s ease;
+}
+/* ===== HUD CSS animation ===== */
+
+.hud-animation {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.hud-block {
+  width: 14px;
+  height: 14px;
+  background: rgb(var(--accent));
+  opacity: 0.3;
+  animation: hudPulse 1.6s ease-in-out infinite;
+}
+
+/* delays para efecto secuencial */
+.hud-block:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.hud-block:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes hudPulse {
+  0% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+}
+/* ===== Cursor typing effect ===== */
+
+.hero-name {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cursor {
+  margin-left: 6px;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* ===== Disable text selection ===== */
+
+* {
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Edge */
+  user-select: none;
+}
+/* ===== Card button ===== */
+
+.card-button {
+  margin-top: 28px;
+  padding: 6px 18px;
+
+  border: 2px solid rgb(var(--accent));
+  background: rgba(15, 18, 30, 0.9);
+
+  color: rgb(var(--accent));
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.card-button:hover {
+  transform: scale(1.08);
+  box-shadow: 6px 6px 0 rgb(var(--accent));
+}
+/* ===== Diploma item ===== */
+
+.diploma-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/* ===== Diploma CSS animation ===== */
+
+.diploma-animation {
+  margin-top: 64px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.diploma-paper {
+  width: 120px;
+  height: 80px;
+  border: 4px solid rgb(var(--accent));
+  position: relative;
+  opacity: 0.6;
+  animation: diplomaFloat 3s ease-in-out infinite;
+}
+
+.diploma-line {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  width: 40px;
+  height: 4px;
+  background: rgb(var(--accent));
+  opacity: 0.8;
+  animation: diplomaScan 2s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes diplomaFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes diplomaScan {
+  0%   { width: 20px; opacity: 0.3; }
+  50%  { width: 50px; opacity: 1; }
+  100% { width: 20px; opacity: 0.3; }
+}
+/* ===== Diploma header layout ===== */
+
+.diploma-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+/* ===== Diploma animation ===== */
+
+.diploma-anim {
+  display: flex;
+}
+
+.diploma-paper {
+    margin-top: 48px;
+    margin-bottom: 38px;
+  width: 110px;
+  height: 140px;
+  border: 2px solid rgb(var(--accent));
+  position: relative;
+  opacity: 0.8;
+  animation: diplomaFloat 4s ease-in-out infinite;
+}
+
+/* Top header of diploma */
+.diploma-top {
+  height: 20px;
+  background: rgba(var(--accent), 0.15);
+  border-bottom: 2px solid rgb(var(--accent));
+}
+
+/* Lines */
+.diploma-line {
+  display: block;
+  height: 4px;
+  width: 70px;
+  background: rgb(var(--accent));
+  opacity: 0.5;
+  margin: 12px auto 0;
+}
+
+.diploma-line.short {
+  width: 40px;
+}
+
+/* Seal */
+.diploma-seal {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 14px;
+  height: 14px;
+  background: rgb(var(--accent));
+  animation: sealPulse 2.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes diplomaFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes sealPulse {
+  0%   { transform: scale(1); opacity: 0.6; }
+  50%  { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+.card {
+  cursor: pointer;
+  text-decoration: none;
+}
+.card:hover {
+  text-decoration: none;
+}
+/* ===== Contact card colors ===== */
+
+.card-linkedin {
+  --accent: 236, 72, 153; /* azul */
+}
+
+.card-github {
+  --accent: 236, 72, 153; /* gris */
+}
+
+.card-whatsapp {
+  --accent: 236, 72, 153; /* verde */
+}
+/* ===== Home icon ===== */
+
+.home-icon {
+  position: relative;
+  width: 20px;
+  height: 18px;
+}
+
+.home-body {
+  position: absolute;
+  bottom: 0;
+  left: 3px;
+  width: 15px;
+  height: 10px;
+  background: rgb(var(--accent));
+}
+
+.home-roof {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 8px solid rgb(var(--accent));
+}
+/* ===== Checkpoint Signal ===== */
+
+.checkpoint-signal {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px;
+  pointer-events: none;
+}
+
+.signal-frame {
+  position: relative;
+  width: 140px;
+  height: 90px;
+  border: 2px solid rgba(var(--accent), 0.8);
+  background: rgba(10, 12, 18, 0.6);
+  box-shadow:
+    0 0 0 2px rgba(var(--accent), 0.15),
+    inset 0 0 12px rgba(var(--accent), 0.15);
+  overflow: hidden;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Scan line */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(var(--accent), 0.9);
+  box-shadow: 0 0 8px rgba(var(--accent), 0.8);
+  animation: scan 2.8s linear infinite;
+}
+
+/* Pixels */
+.pixel {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(var(--accent), 0.9);
+  opacity: 0;
+  animation: blink 2.4s steps(1) infinite;
+}
+
+.p1 { top: 18px; left: 22px; animation-delay: 0s; }
+.p2 { top: 44px; left: 60px; animation-delay: 0.4s; }
+.p3 { top: 30px; right: 28px; animation-delay: 0.8s; }
+.p4 { bottom: 16px; left: 90px; animation-delay: 1.2s; }
+
+/* Animations */
+@keyframes scan {
+  0%   { top: -4px; opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { opacity: 1; }
+  90%  { opacity: 0; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes blink {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  60%  { opacity: 0; }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+.home-button {
+ margin-top: 200px;
+}
+.contact-titulo {
+ margin-bottom: 160px;
+}
+.hero-button {
+ margin-top: 30px;
+ margin-bottom: 0px;
+}
+.subtitle {
+ margin-bottom: 50px;
+}
+/* Cards solo informativas */
+.card {
+  cursor: default;
+  pointer-events: auto;
+}
+
+/* Cards clickeables (CONTACT) */
+.card-link {
+  cursor: pointer;
+  pointer-events: auto;
+}
+.card {
+  width: 160px;
+  height: 160px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    width: 190px;
+    height: 190px;
+  }
+}
+@media (max-width: 768px) {
+  .section {
+    padding-top: 100px !important;
+  }
+
+  .contact-titulo {
+    margin-bottom: 80px;
+  }
+
+  .home-button {
+    margin-top: 120px;
+  }
+}
+@media (max-width: 768px) {
+
+  .section {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+}

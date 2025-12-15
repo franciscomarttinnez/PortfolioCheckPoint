@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+
+import Header from "../components/Header.astro";
+
+import Hero from "../sections/Hero.astro";
+import Stack from "../sections/Stack.astro";
+import About from "../sections/About.astro";
+import Diplomas from "../sections/Diplomas.astro";
+import Contact from "../sections/Contact.astro";
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+  rel="stylesheet"
+/>
+
+  <title>Francisco Martinez</title>
+</head>
+
+<body class="bg-black text-white">
+<div class="glow-left"></div>
+<div class="glow-right"></div>
+<div class="background-grid"></div>
+
+
+
+  <Header />
+
+  <main
+  id="scroll-container"
+  class="h-screen overflow-y-scroll relative z-10"
+>
+
+
+    <Hero />
+    <Stack />
+    <About />
+    <Diplomas />
+    <Contact />
+
+  </main>
+
+  <script src="/src/scripts/scroll.js"></script>
+
+</body>
+</html>
