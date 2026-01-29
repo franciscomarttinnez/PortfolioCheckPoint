@@ -1,81 +1,43 @@
-# Francisco Martinez – Portfolio Web
+# Francisco Martinez – Web Portfolio
 
-Portfolio personal como desarrollador web donde presento mis habilidades, tecnologías y proyectos.  
-El objetivo de este sitio es mostrar mi perfil profesional, stack técnico y trabajos realizados.
+Personal web portfolio showcasing my skills, technologies, and projects as a web developer.  
+The goal of this website is to present my professional profile, technical stack, and completed work.
 
-## 🌐 Demo
+## 🌐 Live Demo
 https://portfoliofranciscomartinez.netlify.app
 
 ---
 
-## 🚀 Sobre el Proyecto
+## 🚀 About the Project
 
-Este portfolio fue creado para:
+This portfolio was created to:
 
-- Mostrar mis habilidades en Frontend y Backend.
-- Presentar mis stacks tecnológicos.
-- Centralizar enlaces a proyectos y redes profesionales.
-- Servir como carta de presentación para oportunidades laborales.
+- Showcase my Frontend skills
+- Present my technology stack
+- Centralize links to my projects and professional networks
+- Serve as a digital resume for job opportunities
 
----
-
-## 🛠 Tecnologías Utilizadas
-
-### Frontend
-- HTML
-- CSS
-- JavaScript
-- React
-
-### Backend
-- Python
-- Django
-
-### Base de Datos
-- SQL
 
 ---
 
-## 📂 Secciones del Portfolio
+## 📂 Portfolio Sections
 
-- **Home / Hero** – Presentación rápida de mi perfil.
-- **Stacks** – Tecnologías que manejo.
-- **About Me** – Información personal y profesional.
-- **Diplomas / Certificados** – Formación y cursos realizados.
-- **Contact** – Enlaces a redes y medios de contacto.
+- **Home / Hero** – Quick introduction of my profile
+- **Stacks** – Technologies I work with
+- **About Me** – Personal and professional information
+- **Diplomas / Certificates** – Education and completed courses
+- **Contact** – Social networks and contact links
 
 ---
 
 ## 📱 Responsive Design
-El sitio está optimizado para:
+The website is optimized for:
 
 - Desktop
 - Tablets
-- Mobile
+- Mobile devices
 
----
 
-## 🎯 Objetivo Profesional
-Actualmente enfocado en oportunidades como:
 
-- Frontend Developer Junior
-- Full Stack Junior
-- Web Developer
 
----
 
-## 📬 Contacto
-
-- LinkedIn: *(poner link)*
-- GitHub: *(poner link)*
-- Email: *(opcional)*
-
----
-
-## ⚙️ Instalación Local
-
-```bash
-git clone https://github.com/tuusuario/turepo.git
-cd turepo
-npm install
-npm start
