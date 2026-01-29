@@ -1,43 +1,81 @@
-# Astro Starter Kit: Minimal
+# Francisco Martinez – Portfolio Web
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Portfolio personal como desarrollador web donde presento mis habilidades, tecnologías y proyectos.  
+El objetivo de este sitio es mostrar mi perfil profesional, stack técnico y trabajos realizados.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🌐 Demo
+https://portfoliofranciscomartinez.netlify.app
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Sobre el Proyecto
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Este portfolio fue creado para:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- Mostrar mis habilidades en Frontend y Backend.
+- Presentar mis stacks tecnológicos.
+- Centralizar enlaces a proyectos y redes profesionales.
+- Servir como carta de presentación para oportunidades laborales.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🛠 Tecnologías Utilizadas
 
-## 🧞 Commands
+### Frontend
+- HTML
+- CSS
+- JavaScript
+- React
 
-All commands are run from the root of the project, from a terminal:
+### Backend
+- Python
+- Django
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Base de Datos
+- SQL
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📂 Secciones del Portfolio
+
+- **Home / Hero** – Presentación rápida de mi perfil.
+- **Stacks** – Tecnologías que manejo.
+- **About Me** – Información personal y profesional.
+- **Diplomas / Certificados** – Formación y cursos realizados.
+- **Contact** – Enlaces a redes y medios de contacto.
+
+---
+
+## 📱 Responsive Design
+El sitio está optimizado para:
+
+- Desktop
+- Tablets
+- Mobile
+
+---
+
+## 🎯 Objetivo Profesional
+Actualmente enfocado en oportunidades como:
+
+- Frontend Developer Junior
+- Full Stack Junior
+- Web Developer
+
+---
+
+## 📬 Contacto
+
+- LinkedIn: *(poner link)*
+- GitHub: *(poner link)*
+- Email: *(opcional)*
+
+---
+
+## ⚙️ Instalación Local
+
+```bash
+git clone https://github.com/tuusuario/turepo.git
+cd turepo
+npm install
+npm start
